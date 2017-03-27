@@ -12,6 +12,7 @@ function validateNumber(event) {
     }
 };
 function insertar(numeros){
+    var boton =$("#ordena");
     boton.removeClass("disabled");
     boton.attr("disabled",false);
     var input= $("#number-input").val();
@@ -59,8 +60,8 @@ function ordenar(nums){
 //     } while (swapped);
 // }
 
-var boton =$("#ordena");
 $(document).ready(function(){
+    var boton =$("#ordena");
     boton.attr("disabled",true);
     $("#number-input").keypress(validateNumber);
     $("#inserta").click(insertar);
