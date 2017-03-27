@@ -12,6 +12,8 @@ function validateNumber(event) {
     }
 };
 function insertar(numeros){
+    boton.removeClass("disabled");
+    boton.attr("disabled",false);
     var input= $("#number-input").val();
     var nums =input.split('');
     for ( var i = 0; i < nums.length; i++ ){
@@ -19,7 +21,10 @@ function insertar(numeros){
         $(".card1").append(cardBlock);
     }
 };
-function ordenar(numsOrd){
+function ordenar(nums){
+    var input= $("#number-input").val();
+    var nums =input.split('');
+    var numsOrd =nums.sort();
     var input= $("#number-input").val();
     var nums =input.split('');
     var numsOrd =nums.sort();
@@ -34,7 +39,29 @@ function ordenar(numsOrd){
         $(".card2").append(cardBlock); 
     } 
 };
+//sort con bubble sort 
+// function ordenar(nums){
+//     var input= $("#number-input").val();
+//     var nums =input.split('');
+//     var swapped;
+//     do {
+//         swapped = false;
+//         for (var i=0; i < nums.length-1; i++) {
+//             if (nums[i] > nums[i+1]) {
+//                 var temp = nums[i];
+//                 nums[i] = nums[i+1];
+//                 nums[i+1] = temp;
+//                 swapped = true;
+//             }
+//             var cardBlock =$('<div class="card-block">').text(nums[i]);
+//             $(".card2").append(cardBlock); 
+//         }
+//     } while (swapped);
+// }
+
+var boton =$("#ordena");
 $(document).ready(function(){
+    boton.attr("disabled",true);
     $("#number-input").keypress(validateNumber);
     $("#inserta").click(insertar);
     $("#ordena").click(ordenar);
